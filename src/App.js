@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import {Button} from 'react-bootstrap';
+import {BrowserRouter} from 'react-router-dom';
+const App=()=> {
   return (
-    <div className="App">
+    <BrowserRouter>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Button variant='warning'>
+          ورود
+        </Button>
+        <ul>
+          <li>تماس با ما</li>
+          <li>درباره ما</li>
+          <li>رشدانا</li>
+          <li><h3>لوگو</h3></li>
+
+        </ul>
+     </header>
+     <div className='baner'>
+       <img 
+       src={require('./image/header.png')}
+       >
+       </img>
+     </div>
+    </BrowserRouter>
   );
 }
 
