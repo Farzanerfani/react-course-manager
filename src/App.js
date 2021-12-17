@@ -1,7 +1,32 @@
 import './App.css';
 import {Button} from 'react-bootstrap';
 import {BrowserRouter} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+
+
 const App=()=> {
+  const [List,setList]=useState([]);
+  useEffect(()=>{
+    GetData()},[]
+  )
+
+  const GetData=async()=>{
+    await axios({
+      method:'GET',
+      url:'http://185.204.197.151:8000/api/v1/allshops'
+    }).then((res)=>{
+      console.log('res',res.data.docs)
+      setList(res.data.docs)
+    }).catch((err)=>{
+      console.log('err',err)
+    }).finally(()=>{
+      console.log('finally')
+
+    })
+  }
+
   return (
     <BrowserRouter>
       <header className="App-header">
@@ -22,6 +47,8 @@ const App=()=> {
        >
        </img>
      </div>
+
+     
     </BrowserRouter>
   );
 }
