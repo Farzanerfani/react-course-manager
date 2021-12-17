@@ -3,6 +3,7 @@ import {Button} from 'react-bootstrap';
 import {BrowserRouter} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Item from 'antd/lib/list/Item';
 
 
 
@@ -30,7 +31,7 @@ const App=()=> {
   return (
     <BrowserRouter>
       <header className="App-header">
-        <Button variant='warning'>
+        <Button >
           ورود
         </Button>
         <ul>
@@ -47,6 +48,25 @@ const App=()=> {
        >
        </img>
      </div>
+    <div className='container'>
+     {List.map((item)=>(
+       <div className='Box-container' key={item.id}>
+        <img src={item.image.url}/>
+        <br></br>
+        <h3>{item.title}دوره مقدماتی</h3>
+        <br></br>
+         مدت زمان :{item.duration} ساعت
+        <br></br>
+        <br></br>
+        مدرس :{item.mentor}
+        <br></br>
+        <br></br>
+        <Button>
+          جزئیات دوره
+        </Button>
+       </div>
+     ))}
+     </div>
 
      
     </BrowserRouter>
@@ -54,3 +74,15 @@ const App=()=> {
 }
 
 export default App;
+
+// const Box = (props) => {
+//   return (
+//       <div className='Box-container'>
+//           <div>
+//             {props.item.title}
+
+//           </div>
+//       </div>
+//   )
+// }
+
