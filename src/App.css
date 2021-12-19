@@ -1,10 +1,12 @@
 .App {
-  display: flex;}
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
 
 .App-header {
   background-color: #363636;
   height: 80px;  
-  width: 100vw;
   display: flex;
   flex-direction: row;
   color: white;
@@ -12,8 +14,8 @@
 
 }
 .menu{
+  padding: 20PX;
   display: inline-block;
-  padding: 10px;
   text-decoration: none;
   color: white;
   }
@@ -24,10 +26,16 @@
   height: 40PX;
   margin-left: 20px ;
   margin-top: 20px;
+  color: white;
+  background-color: rgb(45, 90, 85);
+  border: none;
+
+
 }
-Link{
+.App-header a{
   color: white;
   margin: 10px;
-
+  text-decoration: none;
+  margin: 10px;
 }
 
