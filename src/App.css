@@ -4,16 +4,18 @@
 .App-header {
   background-color: #363636;
   height: 80px;  
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   color: white;
   justify-content: space-between;
 
 }
-.App-header li{
+.menu{
   display: inline-block;
   padding: 10px;
+  text-decoration: none;
+  color: white;
   }
 
 
@@ -23,32 +25,9 @@
   margin-left: 20px ;
   margin-top: 20px;
 }
-.baner img{
-  width: 100%;
-  height: 250px;
-}
-.container{
-  display: flex;
-  justify-content: center;
-}
-.Box-container{
-  display: flex;
-  background-color: #fff;
-  border: solid 1px rgb(230, 227, 227);
-  width:300px;
-  height: 350px;
-  margin: 30px;
-  justify-content:center;
-  display: inline-block;
-  text-align: center;
-}
-.Box-container img{
-  width: 100px;
-  height: 100px;
-}
-button{
-  background-color: rgb(30, 65, 61);
-  width: 120px;
-  height: 40px;
+Link{
   color: white;
+  margin: 10px;
+
 }
+
