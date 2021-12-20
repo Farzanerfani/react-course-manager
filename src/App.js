@@ -13,9 +13,9 @@ const App=()=> {
   return (
     <BrowserRouter>
       <header className="App-header">
-        <Button >
-          <Link to='/login'>ورود</Link>
-        </Button>
+        
+          <Link to='/login'><Button >ورود</Button></Link>
+        
         <div className='menu'>
           <Link to='/'>رشدانا</Link>
           <Link to='#'>درباره ما</Link>
