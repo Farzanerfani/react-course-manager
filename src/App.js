@@ -4,7 +4,7 @@ import {Button} from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Item from 'antd/lib/list/Item';
-import {Login, Home} from './pages'
+import {Login, Home, Profile} from './pages'
 
 
 

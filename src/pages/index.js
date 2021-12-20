@@ -1,4 +1,4 @@
 import  Login from './login';
 import  Home from './home';
-
-export {Login,Home};
+import Profile from './profile'
+export {Login,Home,Profile};
