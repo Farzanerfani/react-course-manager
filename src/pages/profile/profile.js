@@ -27,10 +27,16 @@ const Profile=()=>{
       const UpdateData=async(id)=>{
         console.log(id)
         await axios({
-          method:'put',
-          url:'http://185.204.197.151:8000/api/v1/updateuser' + id ,
+          method:'PUT',
+          url:'http://185.204.197.151:8000/api/v1/updateuser/' + id ,
+          headers: {'token': token},
+          body:
+          {
+          username:'marziye' ,
+          fullname:'erfani'
+          }
         }).then(res=>{
-          console.log('res',res)
+          console.log('res',res.data)
         }).catch(err=>{
           console.log('err',err)
         })
@@ -45,7 +51,8 @@ const Profile=()=>{
                 <div className='profile'>
                     <input value={user.username}/>
                     <input value={user.fullname}/>
-                    <Button>
+                    <Button
+                    onClick={UpdateData(user.id)}>
                      ویرایش
                     </Button>
                         </div>
