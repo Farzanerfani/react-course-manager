@@ -5,7 +5,9 @@ import {Formik} from "formik";
 import * as yup from 'yup';
 import axios from 'axios';
 import { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,Route, Routes, Link } from 'react-router-dom';
+import { Profile} from '../../pages'
+
 
 
 
@@ -39,10 +41,6 @@ const Login=(props)=>{
 
         })
     }
-
-
-
-
 
     return(
         <div className='login-container'>
@@ -90,7 +88,10 @@ const Login=(props)=>{
                     <Button 
                     type="submit"
                     >
+                    <Link to='/profile'>
                     ورود
+                    </Link>
+
                     </Button>
                     <div className='error-login'>{error}</div>
 
@@ -98,6 +99,7 @@ const Login=(props)=>{
                     )}
                 </Formik>
         </div>
+
     )
 }
 export default Login;
