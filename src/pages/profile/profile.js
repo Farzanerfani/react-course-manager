@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {Button} from 'react-bootstrap';
 import axios from 'axios';
 import './profile.css'
 const Profile=()=>{
     const [user , setUser]=useState('');
     const token=localStorage.getItem('token');
+    useEffect(()=>{
+        GetData()},[]
+      )
 
     const GetData=async()=>{
         await axios({
           method:'GET',
           url:'http://185.204.197.151:8000/api/v1/getuser',
+          headers: {'token': token}
         }).then((res)=>{
           console.log('res',res.data)
           setUser(res.data)
@@ -24,7 +28,7 @@ const Profile=()=>{
         console.log(id)
         await axios({
           method:'put',
-          url:'http://185.204.197.151:8000/api/v1/updateuser' + id 
+          url:'http://185.204.197.151:8000/api/v1/updateuser' + id ,
         }).then(res=>{
           console.log('res',res)
         }).catch(err=>{
@@ -39,8 +43,8 @@ const Profile=()=>{
                 </div>
                 <hr></hr>
                 <div className='profile'>
-                    <input/>
-                    <input/>
+                    <input value={user.username}/>
+                    <input value={user.fullname}/>
                     <Button>
                      ویرایش
                     </Button>
@@ -50,7 +54,7 @@ const Profile=()=>{
             <div className='boxb'>
             <div className='img'>
             </div>
-            <div className='center'>نام</div>
+            <div className='center'>{user.username}</div>
             <div className='menu'>
                 <ul>
                     <li>اطلاعات شخصی</li>
