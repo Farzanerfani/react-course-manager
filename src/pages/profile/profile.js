@@ -4,7 +4,9 @@ import axios from 'axios';
 import './profile.css'
 const Profile=()=>{
     const [user , setUser]=useState('');
-    const token=localStorage.getItem('token');
+    const [username , setUsername]=useState('');
+    const [fullname , setFullname]=useState('');
+
     useEffect(()=>{
         GetData()},[]
       )
@@ -13,7 +15,7 @@ const Profile=()=>{
         await axios({
           method:'GET',
           url:'http://185.204.197.151:8000/api/v1/getuser',
-          headers: {'token': token}
+          headers: {token: localStorage.getItem('token')}
         }).then((res)=>{
           console.log('res',res.data)
           setUser(res.data)
@@ -24,16 +26,15 @@ const Profile=()=>{
     
         })
       }
-      const UpdateData=async(id)=>{
-        console.log(id)
+      const UpdateData=async()=>{
         await axios({
           method:'PUT',
-          url:'http://185.204.197.151:8000/api/v1/updateuser/' + id ,
-          headers: {'token': token},
+          url:'http://185.204.197.151:8000/api/v1/updateuser' ,
+          headers: {token: localStorage.getItem('token')},
           body:
           {
-          username:'marziye' ,
-          fullname:'erfani'
+          username:username,
+          fullname:fullname
           }
         }).then(res=>{
           console.log('res',res.data)
@@ -49,10 +50,10 @@ const Profile=()=>{
                 </div>
                 <hr></hr>
                 <div className='profile'>
-                    <input value={user.username}/>
-                    <input value={user.fullname}/>
+                    <input onChange={(e)=>setUsername(e.target.value)}/>
+                    <input onChange={(e)=>setFullname(e.target.value)}/>
                     <Button
-                    onClick={UpdateData(user.id)}>
+                    onClick={UpdateData()}>
                      ویرایش
                     </Button>
                         </div>
